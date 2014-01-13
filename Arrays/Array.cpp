@@ -18,21 +18,32 @@
  * */
 
 #include <iostream>
-#include <array>
+#include <string>
+#include <vector>
 using namespace std;
 
-template<typename T>
+typedef std::vector< std::string > strVector;
+typedef std::vector< std::string >::iterator strVecIter;
 
-class MyDArray {
-	int A_Lenght;
-public:
-	std::array<T,int > MyDArray(T type, int leng);
-	virtual ~MyDArray();
-};
+strVector ex1 = {"2", "1", "+", "3", "*"};
+strVector ex2 = {"4", "13", "5", "/", "+"};
+strVector ex3 = {"6", "13", "*", "5", "/", "8", "+"};
+
+
+template<class ContainerType>
+void evalRPN(ContainerType& sVec){
+
+	strVecIter sIter = sVec.begin();
+
+	while (sIter != sVec.end()){
+
+		cout << *sIter << endl;
+		sIter++;
+	}
+
+}
 
 int main(){
-	int ris=0;
-	array<int, 3> a = {1,2,3}; ;
-	
+	evalRPN(ex1);
 return 0;
 }
